@@ -13,16 +13,16 @@ int main()
     slowServo(0, 1300, 10, 0);
     slowServo(1, 1100, 10, 0);
     
-    cameraFollow(0, 0, 1280, 600, 100);//Step 1
+    cameraFollow(0, 0, 2400, 600, 100);//Step 1
     turn(10, 300, "left");
     drive(3, 1000);
     slowServo(1, cup, 10, 1);
     
-    drive(5, -300);//step 2
-    slowServo(0, 700, 10, 1);
-    turn(90, 300, "left");
+    drive(5, -1000);//step 2
+    slowServo(0, 700, 10, 0);
+    turn(90, 1000, "left");
     squareUp(black, -500);
-    drive(4, 500);
+    drive(4, 1000);
     turn(90, 1000, "left");
     BlackPeopleTerminator(500);
     slowServo(0, 1300, 10, 0);
@@ -32,16 +32,16 @@ int main()
     int i;
 
     for (i = 0; i < 2; i++) {
-      printf("%d in drink(s) cup\n", i);
+      printf("%d in drink(s) cup\n", i + 1);
     
         turn(90, 1000, "right");//Step 3
         squareUp(black, -500);
         drive(3, -700);
         turn(90, 1000, "right");
         squareUp(black, -500);
-        slowServo(0, 1300, 10, 0);
-        cameraFollow(0, 0, 1250, 600, 100);
-        slowServo(0, 1400, 10, 0);
+        slowServo(0, 1300, 10, 1);
+        cameraFollow(0, 0, 2400, 600, 100);
+        slowServo(0, 1500, 10, 0);
         turn(5, 1000, "left");
         drive(3, 1000);
         turn(5, 1000, "right");
@@ -57,7 +57,20 @@ int main()
         BlackPeopleTerminator(500);
         slowServo(0, 900, 10, 1);
         slowServo(1, 1100, 10, 0);
+        slowServo(0, 450, 10, 0);
     }
+
+    slowServo(0, 1300, 10, 0);//step 5
+    slowServo(1, cup, 10, 1);
+    slowServo(0, 700, 10, 0);
+    drive(2, 1000);
+    lineFollow(8, 500, 2);
+    drive(4, 1000);
+    turn(90, 1000, "left");
+    lineFollow(5, 500, 2);
+    slowServo(0, 1300, 10, 0);
+    slowServo(1, 1100, 10, 0);
+    slowServo(0, 450, 10, 1);
     return 0;
 }
 
