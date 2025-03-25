@@ -13,7 +13,7 @@ int main()
     slowServo(0, 1300, 10, 0);
     slowServo(1, 1100, 10, 0);
     
-    cameraFollow(0, 0, 2400, 600, 100);//Step 1
+    cameraFollow(0, 0, 2200, 600, 100);//Step 1
     turn(10, 300, "left");
     drive(3, 1000);
     slowServo(1, cup, 10, 1);
@@ -40,7 +40,7 @@ int main()
         turn(90, 1000, "right");
         squareUp(black, -500);
         slowServo(0, 1300, 10, 1);
-        cameraFollow(0, 0, 2400, 600, 100);
+        cameraFollow(0, 0, 2000, 600, 100);
         slowServo(0, 1500, 10, 0);
         turn(5, 1000, "left");
         drive(3, 1000);
@@ -57,13 +57,18 @@ int main()
         BlackPeopleTerminator(500);
         slowServo(0, 900, 10, 1);
         slowServo(1, 1100, 10, 0);
-        slowServo(0, 450, 10, 0);
+        slowServo(0, 1300, 10, 0);
+        drive(3, 1000);
+        slowServo(1, cup, 10, 1);
+        drive(6, -1000);
+        BlackPeopleTerminator(500);
+        slowServo(1, open, 10, 1);
     }
 
     slowServo(0, 1300, 10, 0);//step 5
+    drive(2, 1000);
     slowServo(1, cup, 10, 1);
     slowServo(0, 700, 10, 0);
-    drive(2, 1000);
     lineFollow(8, 500, 2);
     drive(4, 1000);
     turn(90, 1000, "left");
