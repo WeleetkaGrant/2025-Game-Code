@@ -5,8 +5,8 @@ int main()
 {
     printf("Hello World\n");
     int open = 1100;
-    int cup = 2000;
-    //int drink = 2170;
+    int cup = 1800;
+    int drink = 2000;
     //checkBattery();//startup
     camera_open_at_res(LOW_RES);
     slowServo(0, 450, 10, 1);
@@ -26,26 +26,26 @@ int main()
     turn(90, 1000, "left");
     BlackPeopleTerminator(500);
     slowServo(0, 1300, 10, 0);
-    slowServo(1, 1100, 10, 0);
-    slowServo(0, 450, 10, 1);
-    
     int i;
 
     for (i = 0; i < 2; i++) {
       printf("%d in drink(s) cup\n", i + 1);
     
+        slowServo(1, open, 10, 1);
+        slowServo(0, 450, 10, 0);
         turn(90, 1000, "right");//Step 3
         squareUp(black, -500);
         drive(3, -700);
         turn(90, 1000, "right");
         squareUp(black, -500);
         slowServo(0, 1300, 10, 1);
-        cameraFollow(0, 0, 2000, 600, 100);
+        slowServo(1, open, 10, 0);
+        cameraFollow(0, 0, 2200, 600, 100);
         slowServo(0, 1500, 10, 0);
         turn(5, 1000, "left");
         drive(3, 1000);
         turn(5, 1000, "right");
-        slowServo(1, cup, 10, 1);
+        slowServo(1, drink, 10, 1);
     
         drive(8, -1500);//Step 4
         turn(90, 1000, "left");
@@ -55,20 +55,27 @@ int main()
         turn(90, 1000, "left");
         slowServo(0, 450, 10, 1);
         BlackPeopleTerminator(500);
+        //turn(5, 1000, "right");
+        //drive(1, 1000);
         slowServo(0, 900, 10, 1);
-        slowServo(1, 1100, 10, 0);
+        slowServo(1, open, 10, 0);
+        //drive(1, -1000);
+        //turn(5, 1000, "left");
+        //reset cup
+        if (i == 0) {
         slowServo(0, 1300, 10, 0);
         drive(3, 1000);
         slowServo(1, cup, 10, 1);
-        drive(6, -1000);
+        drive(8, -1000);
         BlackPeopleTerminator(500);
-        slowServo(1, open, 10, 1);
+        }
     }
 
+    
     slowServo(0, 1300, 10, 0);//step 5
-    drive(2, 1000);
     slowServo(1, cup, 10, 1);
     slowServo(0, 700, 10, 0);
+    drive(2, 1000);
     lineFollow(8, 500, 2);
     drive(4, 1000);
     turn(90, 1000, "left");
